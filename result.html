@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./src/output.css" rel="stylesheet">
+</head>
+<body class="bg-linear-to-r flex-col flex justify-center items-center from-violet-600 to-indigo-600 w-screen h-screen">
+  <div class="w-9/12">
+    <div class="bg-gradient-to-r rounded-tr-lg rounded-tl-lg p-4 from-emerald-400 to-cyan-400 text-center">
+      <h1 class="text-2xl mb-5 text-white" id="res">You Scored : -- / 15</h1>
+    
+    </div>
+
+    <div class="bg-white rounded-bl-lg rounded-br-lg p-5 text-center">
+      <h1 class="text-2xl mb-5">Our Feed-Back!</h1>
+      <hr>
+
+      <h1 id="feedBack" class="mt-5"></h1>
+      <button id="done" class="bg-sky-400 cursor-pointer text-white  mt-5 p-5 rounded-2xl align-middle">Done!</button>
+
+    </div>
+  </div>
+  <script>
+
+    const finalScore = localStorage.getItem('quizScore')
+    console.log(finalScore)
+
+    function final() {
+
+      document.getElementById('res').innerHTML = `You Scored : ${finalScore} / 15`
+      const feed = document.getElementById('feedBack')
+
+      if (finalScore == 15) {
+        feed.innerHTML = `Outstanding! A perfect 15/15. You’ve shown strong command over frontend fundamentals. Keep this momentum going!`
+      } else if (finalScore < 15 && finalScore >= 10) {
+        feed.innerHTML = `Great job! Scoring ${finalScore} shows you have a strong understanding of frontend basics. A little revision on a few topics and you’ll be at a perfect score!`
+      } else if (finalScore > 5 && finalScore < 10) {
+        feed.innerHTML = `“Good effort! Scoring between ${finalScore} shows you understand some frontend concepts. With more practice, you’ll improve quickly.”`
+      } else if (finalScore >= 0 && finalScore <= 5) {
+        feed.innerHTML = `Your score ${finalScore} shows that the fundamentals need more attention. Spend time understanding each topic step-by-step, and you’ll get better`
+      }
+
+    }
+
+    final()
+
+    document.getElementById('done').addEventListener('click', () => {
+      localStorage.removeItem('quizScore')
+      window.location.href = `./starter.html`
+    })
+
+  </script>
+</body>
+</html>
