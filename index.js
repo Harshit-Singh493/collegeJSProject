@@ -101,12 +101,17 @@ const userTheme = document.getElementById('theme')
 userTheme.addEventListener('change', () => {
 
   if (userTheme.value == 'dark') {
-    document.querySelector('body').style.backgroundColor = '#37353E'
+    document.querySelector('body').style.backgroundColor = '#222831'
     document.querySelector('body').style.color = 'white'
     document.getElementById('main').style.boxShadow = "1px 1px 10px 2px #FDFEFF"
+    document.getElementById('theme').style.backgroundColor = 'white'
+    document.getElementById('theme').style.color = 'black'
+    
   } else if (userTheme.value == 'light') {
     document.querySelector('body').style.backgroundColor = 'white'
     document.querySelector('body').style.color = 'black'
     document.getElementById('main').style.boxShadow = "0 25px 50px -40px #000000"
+    document.getElementById('theme').style.backgroundColor = 'black'
+    document.getElementById('theme').style.color = 'white'
   }
 })
