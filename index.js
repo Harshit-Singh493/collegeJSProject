@@ -23,11 +23,10 @@ async function fetchQues() {
   return arr
 }
 
-
 /*
 Objective of loadQues() function is to display the returned array by fetchQues() questions via DOM
 */
-function loadQues(q, i, pre) {
+function loadQues(q, i) {
   document.getElementById('quesNum').innerHTML = `<h1>Question ${i + 1} : </h1>`
   document.getElementById('mainQuestion').innerHTML =`Q: ${q[i].question}`
 
@@ -65,7 +64,9 @@ function loadQues(q, i, pre) {
     document.getElementById(ans[i]).checked = true
   }
 }
-
+/*
+Objective of initQuiz() function is that it acts as a entry point for all other functions
+*/
 async function initQuiz() {
   const questions = await fetchQues()
   let index = 0
@@ -85,7 +86,7 @@ async function initQuiz() {
 
     if (opt.id == questions[index].answer) {
       score++
-      ans.push = opt.id
+      ans[index] = opt.id
     }
 
     ans[index] = opt.id
@@ -116,8 +117,10 @@ async function initQuiz() {
 
 initQuiz()
 
+/*
+Objective of this is to change the theme (either light or dark)
+*/
 const userTheme = document.getElementById('theme')
-
 userTheme.addEventListener('change', () => {
 
   if (userTheme.value == 'dark') {
@@ -135,5 +138,3 @@ userTheme.addEventListener('change', () => {
     document.getElementById('theme').style.color = 'white'
   }
 })
-
-
