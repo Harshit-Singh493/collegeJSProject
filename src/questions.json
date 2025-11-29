@@ -118,7 +118,7 @@
   },
   {
     "id": 14,
-    "question": "What is the default display value of a <div> element?",
+    "question": "What is the default display value of a &lt;div&gt; element?",
     "options": ["inline", "block", "flex", "grid"],
     "answer": 1,
     "tags": ["CSS"]
